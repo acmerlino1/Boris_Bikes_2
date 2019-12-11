@@ -4,7 +4,7 @@ describe DockingStation do
     docking_station = DockingStation.new
     it { is_expected.to respond_to :release_bike }
 
-    it 'releases bike' do
+    it 'releases working bike' do
     bike = docking_station.release_bike
     expect(bike).to be_working
     end
