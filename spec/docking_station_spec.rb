@@ -27,6 +27,17 @@ describe DockingStation do
     expect(subject.dock(@bikes)).not_to be_empty
   end 
 
+
+  it 'allow user to set a capacity' do
+    docking_station = DockingStation.new(25)
+    expect(docking_station.capacity).to eq 25
+  end
+
+  it 'uses DEFAULT_CAPACITY when no argument is given' do
+    docking_station = DockingStation.new
+    expect(docking_station.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+
   describe 'release_bike' do
     it 'release a bike' do
       bike = Bike.new
