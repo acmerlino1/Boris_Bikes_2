@@ -63,6 +63,13 @@ describe DockingStation do
         DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
         expect { subject.dock(Bike.new) }.to raise_error "No space available"
       end
+
+      it 'allows user to return broken bike' do
+        bike = Bike.new
+        bike.report_broken
+        subject.dock(bike)
+        expect(bike.broken?).to eq true
+      end
     end
   end
 end 
